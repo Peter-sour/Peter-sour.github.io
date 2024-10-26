@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="thre">
+        <form id="login" >
+            <h2>Welcome</h2>
+            <div class="input">
+                <input type="text" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <div class="first">
+                <label for="remember">
+                    <input type="checkbox" id="remember" name="remember" value="remember">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Log in</button>
+            <div class="second">
+                <p>
+                    Don't have an account? <a href="#">Sign up</a>
+                </p>
+            </div>
+        </form>
+    </div>
+    <div id="message"></div>
+    <script>
+           document.getElementById('login').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah form dari pengiriman default
+
+    // Mengambil nilai input
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const messageElement = document.getElementById('message');
+            
+            if (username === 'user' && password === 'pass') {
+                messageElement.innerText = 'Login berhasil!';
+                messageElement.className = 'success'; 
+                messageElement.style.display = 'block'; 
+                setTimeout(() => {
+                    window.location.href = 'home32.html';
+                }, 1000);
+            } else {
+                messageElement.innerText = 'Username atau password salah.';
+                messageElement.className = 'error'; 
+                messageElement.style.display = 'block'; 
+            }
+        });
+    
+    </script>
+</body>
+</html>
